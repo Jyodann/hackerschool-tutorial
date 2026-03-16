@@ -24,7 +24,7 @@ public class LovingSphereController : MonoBehaviour
         var horiMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
         
         rb.AddForce(horiMovement, 0, 0, ForceMode.VelocityChange);
-        print(rb.velocity);
+        
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(0f, jumpHeight, 0f, ForceMode.VelocityChange);
@@ -35,6 +35,11 @@ public class LovingSphereController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         this.isGrounded = true;
+
+        if (collision.gameObject.name.Contains("Purple"))
+        {
+            Debug.Log("friday_im_in_love");
+        }
     }
 
     private void OnCollisionExit(Collision collision)
