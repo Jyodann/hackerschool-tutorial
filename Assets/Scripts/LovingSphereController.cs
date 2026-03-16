@@ -34,7 +34,7 @@ public class LovingSphereController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        this.isGrounded = true;
+        this.isGrounded = false;
 
         if (collision.gameObject.name.Contains("Purple"))
         {
@@ -42,8 +42,8 @@ public class LovingSphereController : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
-        this.isGrounded = false;
+        this.isGrounded = true;
     }
 }
